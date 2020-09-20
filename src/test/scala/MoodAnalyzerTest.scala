@@ -8,4 +8,7 @@ class MoodAnalyzerTest extends FunSuite{
   test("Check Happy mood"){
     assert(MoodAnalyzer.analyzeMood("I am in Happy Mood") == "HAPPY")
   }
+  test("Check for any mood"){
+    assert(MoodAnalyzer.analyzeMood("I am in Any Mood") == "HAPPY")
+  }
 }
