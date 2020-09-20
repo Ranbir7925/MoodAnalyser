@@ -1,6 +1,6 @@
 package com.bridgelabz.moodanalyzer
 
-class MoodAnalyzer1 (var message:String) {
+class MoodAnalyzer1(var message: String) {
 
   object MoodAnalyzer {
     def analyzeMood() = {
@@ -10,4 +10,5 @@ class MoodAnalyzer1 (var message:String) {
         "HAPPY"
     }
   }
+
 }
