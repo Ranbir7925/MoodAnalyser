@@ -1,10 +1,13 @@
 package com.bridgelabz.moodanalyzer
 
-object MoodAnalyzer {
-  def analyzeMood(moodMessage: String) = {
-    if (moodMessage.contains("Sad"))
-      "SAD"
-    else
-      "HAPPY"
+class MoodAnalyzer1 (var message:String) {
+
+  object MoodAnalyzer {
+    def analyzeMood() = {
+      if (message.contains("Sad"))
+        "SAD"
+      else
+        "HAPPY"
+    }
   }
 }
