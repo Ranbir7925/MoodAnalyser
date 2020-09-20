@@ -1,14 +1,17 @@
-import com.bridgelabz.moodanalyzer.MoodAnalyzer
+import com.bridgelabz.moodanalyzer.MoodAnalyzer1
 import org.scalatest.FunSuite
 
 class MoodAnalyzerTest extends FunSuite{
   test("Check sad mood"){
-    assert(MoodAnalyzer.analyzeMood("I am in Sad Mood") === "SAD")
+    var moodAnalyzer = new MoodAnalyzer1("I am in Sad Mood")
+    assert(moodAnalyzer.MoodAnalyzer.analyzeMood() === "SAD")
   }
   test("Check Happy mood"){
-    assert(MoodAnalyzer.analyzeMood("I am in Happy Mood") == "HAPPY")
+    var moodAnalyzer = new MoodAnalyzer1("I am in Happy Mood")
+    assert(moodAnalyzer.MoodAnalyzer.analyzeMood()==="HAPPY")
   }
   test("Check for any mood"){
-    assert(MoodAnalyzer.analyzeMood("I am in Any Mood") == "HAPPY")
+    var moodAnalyzer = new MoodAnalyzer1("I am in Any Mood")
+    assert(moodAnalyzer.MoodAnalyzer.analyzeMood() === "HAPPY")
   }
 }
