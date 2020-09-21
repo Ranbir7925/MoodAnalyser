@@ -1,10 +1,13 @@
 package com.bridgelabz.moodanalyzer
-
+class MoodAnalyzerException(exMessage:CustomException.Value ) extends Exception(exMessage.toString){}
 class MoodAnalyzer(var message: String) {
   def analyzeMood() = {
     try {
-      if (message==null){
-        throw new NullPointerException("HAPPY")
+      if (message.length==0){
+        throw new MoodAnalyzerException(CustomException.emptyString)
+      }
+      if(message==null){
+        throw new MoodAnalyzerException(CustomException.nullString)
       }
       if (message.contains("Sad"))
         "SAD"
@@ -12,7 +15,7 @@ class MoodAnalyzer(var message: String) {
         "HAPPY"
     }
     catch {
-      case e:NullPointerException => throw e
+      case _:NullPointerException=> throw new MoodAnalyzerException(CustomException.nullString)
     }
   }
 }
