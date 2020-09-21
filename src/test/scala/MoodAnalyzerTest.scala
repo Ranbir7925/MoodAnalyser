@@ -1,4 +1,4 @@
-import com.bridgelabz.moodanalyzer.MoodAnalyzer
+import com.bridgelabz.moodanalyzer.{CustomException, MoodAnalyzer, MoodAnalyzerException}
 import org.scalatest.FunSuite
 
 class MoodAnalyzerTest extends FunSuite {
@@ -14,11 +14,13 @@ class MoodAnalyzerTest extends FunSuite {
     val moodAnalyzer = new MoodAnalyzer("I am in Any Mood")
     assert(moodAnalyzer.analyzeMood() === "HAPPY")
   }
-  test("givenTestMessage_whenNull_shouldReturnException"){
+  test("givenTestMessage_whenNull_shouldReturnCustomException"){
     val moodAnalyzer = new MoodAnalyzer(null)
-    val thrown = intercept[NullPointerException]{
+    val thrown = intercept[MoodAnalyzerException]{
       moodAnalyzer.analyzeMood()
     }
-    assert( thrown.getMessage === "HAPPY")
+    print(thrown)
+    assert( thrown.getMessage == CustomException.nullString.toString)
   }
+
 }
