@@ -1,17 +1,24 @@
-import com.bridgelabz.moodanalyzer.MoodAnalyzer1
+import com.bridgelabz.moodanalyzer.MoodAnalyzer
 import org.scalatest.FunSuite
 
 class MoodAnalyzerTest extends FunSuite {
-  test("Check sad mood") {
-    val moodAnalyzer = new MoodAnalyzer1("I am in Sad Mood")
-    assert(moodAnalyzer.MoodAnalyzer.analyzeMood() === "SAD")
+  test("givenTestMessage_whenWithSadMood_shouldReturnSad") {
+    val moodAnalyzer = new MoodAnalyzer("I am in Sad Mood")
+    assert(moodAnalyzer.analyzeMood() == "SAD")
   }
-  test("Check Happy mood") {
-    val moodAnalyzer = new MoodAnalyzer1("I am in Happy Mood")
-    assert(moodAnalyzer.MoodAnalyzer.analyzeMood() === "HAPPY")
+  test("givenTestMessage_whenWithHappyMood_shouldReturnHappy") {
+    val moodAnalyzer = new MoodAnalyzer("I am in Happy Mood")
+    assert(moodAnalyzer.analyzeMood() == "HAPPY")
   }
-  test("Check for any mood") {
-    val moodAnalyzer = new MoodAnalyzer1("I am in Any Mood")
-    assert(moodAnalyzer.MoodAnalyzer.analyzeMood() === "HAPPY")
+  test("givenTestMessage_whenWithAnyMood_shouldReturnHappy") {
+    val moodAnalyzer = new MoodAnalyzer("I am in Any Mood")
+    assert(moodAnalyzer.analyzeMood() === "HAPPY")
+  }
+  test("givenTestMessage_whenNull_shouldReturnException"){
+    val moodAnalyzer = new MoodAnalyzer(null)
+    val thrown = intercept[NullPointerException]{
+      moodAnalyzer.analyzeMood()
+    }
+    assert( thrown.getMessage === "HAPPY")
   }
 }
