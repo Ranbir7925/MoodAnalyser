@@ -19,8 +19,13 @@ class MoodAnalyzerTest extends FunSuite {
     val thrown = intercept[MoodAnalyzerException]{
       moodAnalyzer.analyzeMood()
     }
-    print(thrown)
     assert( thrown.getMessage == CustomException.nullString.toString)
   }
-
+  test("givenTestMessage_whenEmptyString_shouldReturnCustomException"){
+    val moodAnalyzer = new MoodAnalyzer("")
+    val thrown = intercept[MoodAnalyzerException]{
+      moodAnalyzer.analyzeMood()
+    }
+    assert(thrown.getMessage == CustomException.emptyString.toString)
+  }
 }
